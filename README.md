@@ -10,31 +10,20 @@ Matlab like structure for python
 An example on how to use it in your workflow.
 Functions like Matlab structs where you can directly assign multiple levels of data.
 
-By default it allows overriding
-
 ```py
 from struct4py import Struct
+
 # Example usage
-data = Struct(True)  # allow override: True by default
+data = Struct()
+
+# Assigning primitive value
 data.a = 10
-print(data)  # {'a': 10}
+print(data)  # Struct({'a': 10})
+print(data.a)  # 10
 
-# Overwriting data.a with a subfield
-data.a.b = 3
-print(data)  # {'a': {'b': 3}}
+data.b.c = 20
+print(data.b.c)  # 20
+print(data)  # Struct({'a': 10, 'b': Struct({'c': 20})})
 
-# Adding further nesting
-data.a.b.c = 'nested'
-print(data)  # {'a': {'b': {'c': 'nested'}}}
-
-# Converting to dictionary
-print(data.to_dict())  # {'a': {'b': {'c': 'nested'}}}
-```
-
-but this can easily be prevented with a single flag
-
-```py
-data = Struct(False)  # allow override: True by default
-data.a = 10
-print(data)  # {'a': 10}
+data.a.c = 10  # will fail as data.a already exists
 ```

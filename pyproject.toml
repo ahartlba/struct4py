@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "struct4py"
-version = "0.1.0"
+version = "1.0.0"
 description = "Matlab like structure for python, allowing for fast and easy indexing"
 authors = ["ahartlba <you@example.com>"]
 license = "MIT"
